@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="isNew">New Pet Creator</ion-title>
+    <ion-title *ngIf="!isNew">Pet Editor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="pet">
+  <app-pet-graphic [pet]="pet"></app-pet-graphic>
+
+  <form (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>pet Title</ion-label>
+      <ion-input type="text" [(ngModel)]="pet.title" name="title"></ion-input>
+    </ion-item>
+
+    <ion-button [disabled]="!auth.can('delete:pets')" (click)="deleteClicked()">Delete</ion-button>
+    <br />
+    <ion-button (click)="closeModal()">Cancel</ion-button>
+    <ion-button [disabled]="!auth.can('patch:pets') || !auth.can('post:pets')" (click)="saveClicked()">Save</ion-button>
+
+  </form>
+</ion-content>

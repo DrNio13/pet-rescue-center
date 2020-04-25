@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar style="text-align: center">
+    <ion-title>
+      <b>Pet Rescue</b> Center</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- TODO check drink, recipes references -->
+<ion-content *ngIf="pets && pets.items">
+  <div style="display: flex; justify-content: center; padding-top: 20px;">
+    <ion-card style="align-items: center; display: flex; flex-direction: column; cursor: pointer;" *ngFor="let pet of Object.keys(pets.items)"
+      (click)="openForm(pets.items[pet])">
+      <ion-card-header>
+        <ion-card-title>{{pets.items[pet].title}}</ion-card-title>
+      </ion-card-header>
+
+      <!-- <ion-card-content>
+        <!-- <app-pet-graphic [pet]="pets.items[pet]"></app-pet-graphic> -->
+      <!-- </ion-card-content> -->
+    </ion-card>
+    <ion-card style="opacity: .7; align-items: center; display: flex; flex-direction: column; cursor: pointer;" *ngIf="auth.can('post:pets')"
+      (click)="openForm()">
+      <ion-card-header>
+        <ion-card-title>Create pet</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content style="color:grey; font-size: 256%;">
+        <ion-icon name="add-circle"></ion-icon>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
