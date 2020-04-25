@@ -22,7 +22,6 @@ export class PetsService {
   }
 
   getPets() {
-    return [];
     if (this.auth.can('get:pets-detail')) {
       this.http.get(this.url + '/pets-detail', this.getHeaders())
         .subscribe((res: any) => {
