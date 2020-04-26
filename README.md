@@ -35,6 +35,8 @@ Run the following commands to run it locally
 `python3 manage.py db upgrade`
 `python3 app.py`
 
+There is a frontend project associated with this web server api. Git clone https://github.com/DrNio13/pet-rescue-center-app and follow it's README.md file.
+
 # Dependencies
 
 Web application most important dependencies are:
@@ -63,10 +65,6 @@ Status  Code Description
 403     FORBIDDEN
 404     NOT FOUND
 500     INTERNAL SERVER ERROR
-
-# Structure
-
-`frontend` : Includes the frontend part of the application in Ionic/Angular. Check it's README.md for further details.
 
 # Testing
 
