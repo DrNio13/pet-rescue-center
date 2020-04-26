@@ -21,107 +21,105 @@ def health_check():
     })
 
 
-# @app.route("/drinks")
-# def get_drinks():
-#     try:
-#         drinks = Drink.query.all()
-#         drinks_formatted = [drink.long() for drink in drinks]
+@app.route("/pets")
+def get_pets():
+    try:
+        pets = Pet.query.all()
+        pets_formatted = [pet.short_format() for pet in pets]
 
-#         return jsonify({
-#             "success": True,
-#             "drinks": drinks_formatted
-#         })
-#     except Exception as e:
-#         print(e)
-#         abort(500)
-
-
-# @app.route("/drinks-detail")
-# @requires_auth('get:drinks-detail')
-# def get_drinks_detail(jwt):
-#     drinks = Drink.query.all()
-#     long_drinks = [drink.long() for drink in drinks]
-
-#     return jsonify({
-#         "success": True,
-#         "drinks": long_drinks
-#     })
+        return jsonify(
+            pets_formatted
+        )
+    except Exception as e:
+        print(e)
+        abort(500)
 
 
-# @app.route("/drinks", methods=["POST"])
-# @requires_auth('post:drinks')
-# def create_drink(jwt):
-#     body = request.get_json()
-#     title = body.get("title")
-#     recipe = body.get("recipe")
+@app.route("/pets-detail")
+def get_pets_detail():
+    try:
+        pets = Pet.query.all()
+        pets_formatted = [pet.long_format() for pet in pets]
 
-#     drink = Drink(title=title, recipe=json.dumps(recipe))
-#     drink.insert()
-
-#     return jsonify({
-#         "success": True,
-#         "drinks": [drink.long()]
-#     })
+        return jsonify(pets_formatted)
+    except Exception as e:
+        print(e)
+        abort(500)
 
 
-# @app.route("/drinks/<int:id>", methods=["PATCH"])
-# @requires_auth('patch:drinks')
-# def update_drink_title(jwt, id):
-#     if id is None or id <= 0:
-#         return json.dumps({
-#             'success':
-#                 False,
-#                 'error':
-#                 'Invalid id #' + str(id)
-#         }), 404
+@app.route("/pets", methods=["POST"])
+@requires_auth('post:pets')
+def create_pet(jwt):
+    body = request.get_json()
+    name = body.get("name")
+    breed = body.get("breed")
+    seeking_owner = body.get("seeking_owner")
+    description = body.get("description")
 
-#     body = request.get_json()
-#     title = body.get("title")
+    pet = Pet(name=name, breed=breed,
+              seeking_owner=seeking_owner, description=description)
+    pet.insert()
 
-#     drink = Drink.query.filter(Drink.id == id).one_or_none()
-#     if (drink is None):
-#         return json.dumps({
-#             'success':
-#                 False,
-#                 'error':
-#                 'Drink #' + str(id) + ' not found to be edited'
-#         }), 404
-
-#     drink.title = title
-#     drink.update()
-
-#     return jsonify({
-#         "success": True,
-#         "drinks": [drink.long()]
-#     })
+    return jsonify(pet.long())
 
 
-# @app.route("/drinks/<int:id>", methods=["DELETE"])
-# @requires_auth('delete:drinks')
-# def delete_drink_by_id(jwt, id):
-#     if id is None or id <= 0:
-#         return json.dumps({
-#             'success':
-#                 False,
-#                 'error':
-#                 'Invalid id #' + str(id)
-#         }), 404
+@app.route("/pets/<int:id>", methods=["PATCH"])
+@requires_auth('patch:pets')
+def update_pet(jwt, id):
+    if id is None or id <= 0:
+        return json.dumps({
+            'success':
+                False,
+                'error':
+                'Invalid id #' + str(id)
+        }), 404
 
-#     drink = Drink.query.filter(Drink.id == id).one_or_none()
-#     if (drink is None):
-#         return json.dumps({
-#             'success':
-#                 False,
-#                 'error':
-#                 'Drink #' + str(id) + ' not found to be edited'
-#         }), 404
+    body = request.get_json()
+    description = body.get("description")
+    seeking_owner = body.get("seeking_owner")
 
-#     drink.delete()
+    pet = Pet.query.filter(Pet.id == id).one_or_none()
+    if (pet is None):
+        return json.dumps({
+            'success':
+                False,
+                'error':
+                'Pet #' + str(id) + ' not found to be edited'
+        }), 404
 
-#     return jsonify({
-#         "success": True,
-#         "delete": drink.id
-#     })
+    pet.description = description
+    pet.seeking_owner = seeking_owner
+    pet.update()
+
+    return jsonify(pet.long_format())
+
+
+@app.route("/pets/<int:id>", methods=["DELETE"])
+@requires_auth('delete:pets')
+def delete_pet_by_id(jwt, id):
+    if id is None or id <= 0:
+        return json.dumps({
+            'success':
+                False,
+                'error':
+                'Invalid id #' + str(id)
+        }), 404
+
+    pet = Pet.query.filter(Pet.id == id).one_or_none()
+    if (pet is None):
+        return json.dumps({
+            'success':
+                False,
+                'error':
+                'Pet #' + str(id) + ' not found to be edited'
+        }), 404
+
+    pet.delete()
+
+    return jsonify({
+        "success": True,
+        "delete": pet.id
+    })
 
 
 # Error Handling

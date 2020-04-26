@@ -4,6 +4,7 @@ import { ModalController } from '@ionic/angular';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { PetFormComponent } from './pet-form/pet-form.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pets',
@@ -12,6 +13,7 @@ import { PetFormComponent } from './pet-form/pet-form.component';
 })
 export class PetsPage implements OnInit {
   Object = Object;
+  pet$: Observable<any>;
 
   constructor(
     private auth: AuthService,
@@ -20,7 +22,9 @@ export class PetsPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.petsService.getPets();
+    console.log(1);
+    this.pet$ = this.petsService.getPets();
+    console.log(this.pet$);
   }
 
   async openForm(activePet: any = null) {

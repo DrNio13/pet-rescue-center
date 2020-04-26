@@ -6,16 +6,16 @@
 </ion-header>
 
 <!-- TODO check drinks and attributes -->
-<ion-content *ngIf="pets && pets.items">
+<ion-content>
   <div style="display: flex; justify-content: center; padding-top: 20px;">
-    <ion-card style="align-items: center; display: flex; flex-direction: column; cursor: pointer;" *ngFor="let pet of Object.keys(pets.items)"
-      (click)="openForm(pets.items[pet])">
+    <ion-card style="align-items: center; display: flex; flex-direction: column; cursor: pointer;" *ngFor="let pet of pet$ | async"
+      (click)="openForm(pet)">
       <ion-card-header>
-        <ion-card-title>{{pets.items[pet].name}}</ion-card-title>
+        <ion-card-title>{{pet?.name}}</ion-card-title>
       </ion-card-header>
 
       <ion-card-content>
-        <app-pet-graphic [pet]="pets.items[pet]"></app-pet-graphic>
+        <app-pet-graphic [pet]="pet"></app-pet-graphic>
       </ion-card-content>
     </ion-card>
 
