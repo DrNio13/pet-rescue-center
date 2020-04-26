@@ -55,4 +55,32 @@ Status  Code Description
 
 # Testing
 
-`backend` folder includes Postman tests for each role and success and error cases.
+`capstone-collection.postman_collection.json` Postman tests for each role and success and error cases.
+
+
+<!-- TODOs -->
+
+<!-- Instructions are provided in README for setting up authentication so reviewers can test endpoints at live application endpoint -->
+
+
+<!-- 
+All required configuration settings are included in a bash file which export:
+
+The Auth0 Domain Name
+The JWT code signing secret
+The Auth0 Client ID
+ -->
+
+
+<!-- API is hosted live via Heroku
+URL is provided in project README
+API can be accessed by URL and requires authentication -->
+
+<!-- Secrets are stored as environment variables. -->
+
+
+<!-- Motivation for project
+Project dependencies, local development and hosting instructions,
+Detailed instructions for scripts to install any project dependencies, and to run the development server.
+Documentation of API behavior and RBAC controls
+ -->

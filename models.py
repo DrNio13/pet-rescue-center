@@ -3,10 +3,15 @@ from sqlalchemy import Column, String, Boolean, Integer, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
 
-database_name = "petrescuecenter"
-database_path = "postgres://{}/{}".format('localhost:5432', database_name)
+database_path = os.environ['DATABASE_URL']
 
 db = SQLAlchemy()
+
+
+'''
+setup_db(app)
+    binds a flask application and a SQLAlchemy service
+'''
 
 
 def setup_db(app, database_path=database_path):
@@ -16,6 +21,8 @@ def setup_db(app, database_path=database_path):
     db.init_app(app)
     db.create_all()
 
+
+# Customer can show interest for a Pet through Enquiry Model
 
 class Enquiry(db.Model):
     __tablename__ = "enquiries"
@@ -45,6 +52,8 @@ class Enquiry(db.Model):
             'customer_id': self.customer_id
         }
 
+
+# Pet Model
 
 class Pet(db.Model):
     __tablename__ = 'pets'
@@ -88,6 +97,8 @@ class Pet(db.Model):
             'seeking_owner': self.seeking_owner
         }
 
+
+# Customer Model
 
 class Customer(db.Model):
     __tablename__ = 'customers'
