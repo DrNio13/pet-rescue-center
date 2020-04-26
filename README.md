@@ -2,6 +2,8 @@
 
 SPA platform in Python and Angular 9 for Udacity
 
+Public url of backend https://pet-rescue-center.herokuapp.com/
+
 # Description
 
 Web application that lists pet ads for potential adoption.
