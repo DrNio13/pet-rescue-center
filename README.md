@@ -10,6 +10,11 @@ Web application that lists pet ads for potential adoption.
 
 Python 3.7
 
+# Virtual Env
+
+`python3 -m venv venv;
+. venv/bin/activate`
+
 # Pip Dependencies
 
 `pip install -r requirements.txt`
