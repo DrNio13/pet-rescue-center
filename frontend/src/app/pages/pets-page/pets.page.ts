@@ -22,15 +22,13 @@ export class PetsPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(1);
     this.pet$ = this.petsService.getPets();
-    console.log(this.pet$);
   }
 
   async openForm(activePet: any = null) {
 
     // TODO check permission
-    if (!this.auth.can('get:pets-detail')) {
+    if (!this.auth.can('get:pets-details')) {
       return;
     }
 

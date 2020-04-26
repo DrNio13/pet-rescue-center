@@ -8,7 +8,8 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       { path: 'pets-page', loadChildren: '../pets-page/pets.page.module#PetsPageModule' },
-      { path: 'user-page', loadChildren: '../user-page/user-page.module#UserPagePageModule' },
+      { path: 'user-page', loadChildren: '../user-page/user-page.module#UserPageModule' },
+      { path: 'enquiries-page', loadChildren: '../enquiries-page/enquiries-page.module#EnquiriesPageModule' },
       {
         path: '',
         redirectTo: '/tabs/pets-page',

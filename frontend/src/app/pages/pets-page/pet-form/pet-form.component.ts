@@ -22,8 +22,10 @@ export class PetFormComponent implements OnInit {
     if (this.isNew) {
       this.pet = {
         id: -1,
-        title: '',
-        recipe: []
+        name: '',
+        breed: '',
+        description: '',
+        seeking_owner: true
       };
 
     }
@@ -43,7 +45,9 @@ export class PetFormComponent implements OnInit {
   }
 
   deleteClicked() {
-    this.petService.deletePet(this.pet);
-    this.closeModal();
+    this.petService.deletePet(this.pet).subscribe((res) => {
+      window.location.href = window.location.origin;
+    });
+
   }
 }

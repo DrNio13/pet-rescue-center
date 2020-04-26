@@ -23,15 +23,16 @@ export class PetsService {
   }
 
   getPets() {
-    if (this.auth.can('get:pets-detail')) {
-      return this.http.get(this.url + '/pets-detail', this.getHeaders());
-
+    if (this.auth.can('get:pets-details')) {
+      return this.http.get(this.url + '/pets-details', this.getHeaders());
     } else {
       return this.http.get(this.url + '/pets', this.getHeaders());
     }
   }
 
   savePet(pet: any) {
+    pet.seeking_owner = pet.seeking_owner === 'true' || pet.seeking_owner === 'yes';
+
     if (pet.id >= 0) { // patch
       this.http.patch(this.url + '/pets/' + pet.id, pet, this.getHeaders())
         .subscribe((res: any) => {
@@ -40,6 +41,7 @@ export class PetsService {
           }
         });
     } else { // insert
+
       this.http.post(this.url + '/pets', pet, this.getHeaders())
         .subscribe((res: any) => {
           if (res.success) {
@@ -47,14 +49,10 @@ export class PetsService {
           }
         });
     }
-
   }
 
   deletePet(pet: any) {
-    this.http.delete(this.url + '/pets/' + pet.id, this.getHeaders())
-      .subscribe((res: any) => {
-
-      });
+    return this.http.delete(this.url + '/pets/' + pet.id, this.getHeaders());
   }
 
 

@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title *ngIf="isNew">New Pet Creator</ion-title>
-    <ion-title *ngIf="!isNew">Pet Editor</ion-title>
+    <ion-title *ngIf="isNew">New Pet Ad Editor</ion-title>
+    <ion-title *ngIf="!isNew">Pet Editor for {{pet?.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,14 +10,34 @@
 
   <form (ngSubmit)="logForm()">
     <ion-item>
-      <ion-label>pet Title</ion-label>
-      <ion-input type="text" [(ngModel)]="pet.title" name="title"></ion-input>
+      <ion-label>Pet Name</ion-label>
+      <ion-input type="text" [(ngModel)]="pet.name" name="name"></ion-input>
     </ion-item>
 
-    <ion-button [disabled]="!auth.can('delete:pets')" (click)="deleteClicked()">Delete</ion-button>
-    <br />
-    <ion-button (click)="closeModal()">Cancel</ion-button>
-    <ion-button [disabled]="!auth.can('patch:pets') || !auth.can('post:pets')" (click)="saveClicked()">Save</ion-button>
+    <ion-item>
+      <ion-label>Pet Breed</ion-label>
+      <ion-input type="text" [(ngModel)]="pet.breed" name="breed"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Pet Description</ion-label>
+      <ion-input type="text" [(ngModel)]="pet.description" name="description"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Pet Seeks for owner</ion-label>
+      <ion-input type="text" [(ngModel)]="pet.seeking_owner" name="seeking_owner"></ion-input>
+    </ion-item>
+
+    <div class='container'>
+      <div>
+        <ion-button (click)="closeModal()">Cancel</ion-button>
+      </div>
+
+      <div>
+
+      </div>
+    </div>
 
   </form>
 </ion-content>
