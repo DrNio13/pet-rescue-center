@@ -64,6 +64,11 @@ Status  Code Description
 
 `capstone-collection.postman_collection.json` Postman tests for each role and success and error cases.
 
+<!-- === pet-rescue-center Config Vars
+DATABASE_URL:                 postgres://xeimsecbizfcbx:ea5487c7391f48b915c3b916fa9f124188484179e0d34f92f826ce8da6a43181@ec2-34-234-228-127.compute-1.amazonaws.com:5432/d506arn7mg9ade
+
+HEROKU_POSTGRESQL_ORANGE_URL: postgres://vhttpwwrwmvdnq:430bbb606e95e0981fb0efe72ce42b5c547968c5db86cf42cc7b7be5eed0bdf4@ec2-34-234-228-127.compute-1.amazonaws.com:5432/d58umm2b6bq8gp -->
+
 
 <!-- TODOs -->
 
