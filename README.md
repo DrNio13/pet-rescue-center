@@ -17,9 +17,23 @@ Python 3.7
 `python3 -m venv venv;
 . venv/bin/activate`
 
+
 # Pip Dependencies
 
-`pip install -r requirements.txt`
+`pip3 install -r requirements.txt`
+
+# Running the web server locally
+
+Run the following commands to run it locally
+
+`export DATABASE_URL="postgres://localhost:5432/petrescuecenter"`
+`export AUTH0_DOMAIN="drnio13.eu.auth0.com"`
+`export ALGORITHMS=['RS256']`
+`export API_AUDIENCE='pets'`
+`python3 manage.py db init`
+`python3 manage.py db migrate`
+`python3 manage.py db upgrade`
+`python3 app.py`
 
 # Dependencies
 
@@ -27,12 +41,6 @@ Web application most important dependencies are:
 Flask
 Flask-SQLAlchemy
 SQLAlchemy
-
-# Running the web server
-
-`export FLASK_APP=flaskr
-export FLASK_ENV=development
-flask run`
 
 # Database
 
