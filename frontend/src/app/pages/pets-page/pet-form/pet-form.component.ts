@@ -11,6 +11,7 @@ import { PetsService } from '../../../services/pets.service';
 export class PetFormComponent implements OnInit {
   @Input() pet: any;
   @Input() isNew: boolean;
+  email: string;
 
   constructor(
     public auth: AuthService,
@@ -48,6 +49,11 @@ export class PetFormComponent implements OnInit {
     this.petService.deletePet(this.pet).subscribe((res) => {
       window.location.href = window.location.origin;
     });
+  }
 
+  enquiryClicked() {
+    this.petService.enquiryForPet({ ...this.pet, email: this.email }).subscribe((res) => {
+      window.location.href = window.location.origin;
+    });
   }
 }

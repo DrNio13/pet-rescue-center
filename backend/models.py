@@ -28,6 +28,17 @@ class Enquiry(db.Model):
         self.pet_id = pet_id
         self.customer_id = customer_id
 
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
     def long_format(self):
         return {
             'pet_id': self.pet_id,
@@ -82,13 +93,9 @@ class Customer(db.Model):
     __tablename__ = 'customers'
 
     id = Column(Integer, primary_key=True)
-    name = Column(String)
-    surname = Column(String)
     email = Column(String)
 
-    def __init__(self, name, surname, email):
-        self.name = name
-        self.surname = surname
+    def __init__(self, email):
         self.email = email
 
     def insert(self):
@@ -102,36 +109,13 @@ class Customer(db.Model):
         db.session.delete(self)
         db.session.commit()
 
-    def short_format(self):
+    def short_long(self):
         return {
-            'id': self.id,
-            'name': self.name,
-            'surname': self.surname
+            'id': self.id
         }
-
-    def format_long(self):
-        return {
-            'id': self.id,
-            'name': self.name,
-            'surname': self.surname,
-            'email': self.email
-        }
-
-
-class Manager(db.Model):
-    __tablename__ = 'managers'
-
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    surname = Column(String)
-
-    def __init__(self, name, surname, seeking_pet):
-        self.name = name
-        self.surname = surname
 
     def long_format(self):
         return {
             'id': self.id,
-            'name': self.name,
-            'surname': self.surname
+            'email': self.email
         }

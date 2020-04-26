@@ -46,9 +46,18 @@ export class PetsService {
         .subscribe((res: any) => {
           if (res.success) {
             // this.petsToItems(res.pets);
+            // TODO cleanup
           }
         });
     }
+  }
+
+  enquiryForPet(pet: any) {
+    return this.http.post(this.url + '/enquiries', pet, this.getHeaders());
+  }
+
+  getEnquiriesForPets() {
+    return this.http.get(this.url + '/enquiries', this.getHeaders());
   }
 
   deletePet(pet: any) {
