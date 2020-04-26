@@ -7,7 +7,7 @@ import json
 
 database_path = os.environ.get['DATABASE_URL']
 
-if not database_path or database_path is None:
+if not database_path:
     database_name = "petrescuecenter"
     database_path = "postgres://{}/{}".format('localhost:5432', database_name)
 
