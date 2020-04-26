@@ -14,7 +14,14 @@ Web application that lists pet ads for potential adoption.
 
 Python 3.7
 
+# Styleguide 
+
+PEP 8
+
 # Virtual Env
+
+Use virtual env 
+https://virtualenv.pypa.io/en/latest/
 
 `python3 -m venv venv;
 . venv/bin/activate`
@@ -25,7 +32,7 @@ Python 3.7
 
 # Running the web server locally
 
-Run the following commands to run it locally
+Run the following commands to run the project locally
 
 `export DATABASE_URL="postgres://localhost:5432/petrescuecenter"`
 `export AUTH0_DOMAIN="drnio13.eu.auth0.com"`
@@ -41,9 +48,12 @@ There is a frontend project associated with this web server api. Git clone https
 # Dependencies
 
 Web application most important dependencies are:
-Flask
-Flask-SQLAlchemy
-SQLAlchemy
+
+Flask https://flask.palletsprojects.com/en/1.1.x/
+
+Flask-SQLAlchemy https://flask-sqlalchemy.palletsprojects.com/en/2.x/
+
+SQLAlchemy https://www.sqlalchemy.org/
 
 # Database
 
@@ -108,33 +118,200 @@ Error Response in case user is not authenticated
 
 Error Response in case user is not authorized to access the API
 
-`403 UNAUTHORIZED`
+`403 FORBIDDEN`
 `{
-    "code": "authorization_header_missing",
-    "description": "Authorization header is expected"
+    "code": "unauthorized",
+    "description": "Permission not found."
 }`
 
 
 Title: `GET /pets/{id}`
 
-Description: Read pet specific values based on `id` url parameter
+Description: Read pet specific values based on `id` url parameter. Requires authentication
+
+Success Response
+`200 OK`
+`{
+    "breed": "dog",
+    "description": "tessa is so lovely",
+    "id": 1,
+    "name": "Tessa",
+    "seeking_owner": false
+}`
+
+
+Title: `GET /pets/details`
+
+Description: Read pet details. Requires authentication
 
 Success Response
 `200 OK`
 `[
     {
+        "breed": "huskky",
+        "description": "bobby is a lovely puppy",
         "id": 4,
         "name": "bobby",
         "seeking_owner": false
     },
     {
+        "breed": "huskky",
+        "description": "bobby is a lovely puppy",
         "id": 3,
         "name": "bobby",
         "seeking_owner": true
     }
 ]`
 
-Requires authentication
+Title: `POST /pets`
+
+Description: Create pet ad. Requires authentication
+
+Request Body example
+
+`{
+    "breed": "huskky",
+    "description": "bobbie3 is a lovely puppy",
+    "name": "bobbie3",
+    "seeking_owner": false
+}`
+
+Success Response
+`200 OK`
+`{
+    "breed": "huskky",
+    "description": "bobbie3 is a lovely puppy",
+    "id": 8,
+    "name": "bobbie3",
+    "seeking_owner": false
+}`
+
+Title: `PATCH /pets/{id}`
+
+Description: Update pet ad. Requires authentication
+
+Request Body example
+
+`{
+	"description": "Another description for Bobby",
+	"seeking_owner": true
+}`
+
+Success Response
+`200 OK`
+`{
+    "breed": "dog",
+    "description": "tessa is so lovely",
+    "id": 1,
+    "name": "Tessa",
+    "seeking_owner": false
+}`
 
 
-<!-- Documentation of API behavior and RBAC controls -->
+Title: `DELETE /pets/5`
+
+Description: Delete pet ad base on url parameter. Requires authentication
+
+Success Response
+`200 OK`
+`{
+    "delete": 5,
+    "success": true
+}`
+
+
+Title: `GET /enquiries`
+
+Description: Read all enquiries for pets from users. Requires authentication
+
+Success Response
+`200 OK`
+`[
+    {
+        "customer_id": 1,
+        "pet_id": 1
+    },
+    {
+        "customer_id": 1,
+        "pet_id": 4
+    },
+    {
+        "customer_id": 3,
+        "pet_id": 5
+    },
+    {
+        "customer_id": 4,
+        "pet_id": 5
+    }
+]`
+
+Title: `GET /enquiries/{id}`
+
+Description: Read all enquiries for pets from customers. Requires authentication
+
+Success Response
+`200 OK`
+`{
+    "customer_id": 1,
+    "pet_id": 1
+}`
+
+
+Title: `POST /enquiries`
+
+Description: Create an enquiry for a pet from customer. Requires authentication
+
+Request payload
+`{
+	"email": "aaag@gmail.com",
+	"id": 5
+}`
+
+Success Response
+`200 OK`
+`{
+    "customer_id": 5,
+    "pet_id": 3
+}`
+
+
+Title: `GET /customers`
+
+Description: Read all customers. Requires authentication
+
+Success Response
+`200 OK`
+`[
+    {
+        "email": "g@gmail.com",
+        "id": 1
+    },
+    {
+        "email": "h@gmail.com",
+        "id": 2
+    },
+    {
+        "email": "gh@gmail.com",
+        "id": 3
+    },
+    {
+        "email": "ghs@gmail.com",
+        "id": 4
+    },
+    {
+        "email": "aaag@gmail.com",
+        "id": 5
+    }
+]`
+
+
+Title: `GET /customers/{id}`
+
+Description: Read customer info based on id url param. Requires authentication
+
+Success Response
+`200 OK`
+`{
+    "email": "g@gmail.com",
+    "id": 1
+}`
