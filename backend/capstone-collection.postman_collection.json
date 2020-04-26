@@ -1,0 +1,2304 @@
+{
+	"info": {
+		"_postman_id": "741564e0-4d50-413a-b19f-3fa7d6f42d89",
+		"name": "capstone-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "public",
+			"item": [
+				{
+					"name": "GET /pets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7a3f0cb7-22a3-48ae-b165-6a53183af026",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"json is an array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /pets-details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6cb6385a-7d03-49e1-9ada-4f107f8c2636",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"description gives authorization header is expected error\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.description).to.equal(\"Authorization header is expected\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets-details",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /pets/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5f3a7091-5797-4b53-9247-29343eab6526",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"description gives authorization header is expected error\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.description).to.equal(\"Authorization header is expected\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /pets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aa349402-dbdc-4e70-bd08-16b1933698bd",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"description gives authorization header is expected error\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.description).to.equal(\"Authorization header is expected\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Bobby\",\n\t\"breed\": \"husky\",\n\t\"description\": \"Bobby is 2 years old and a lovely dog.\",\n\t\"seeking_owner\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH /pets/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d0a26b04-6434-4fc4-be71-bc10f3cb2274",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"description gives authorization header is expected error\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.description).to.equal(\"Authorization header is expected\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"description\": \"Another description for Bobby\",\n\t\"seeking_owner\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pets/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /pets/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "88ab8d0e-fd22-4865-b843-f9617bbbbd59",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"description gives authorization header is expected error\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.description).to.equal(\"Authorization header is expected\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /enquiries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "55c76ace-c9e0-477b-bb53-dfc3072b4c74",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"description gives authorization header is expected error\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.description).to.equal(\"Authorization header is expected\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/enquiries",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"enquiries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /enquiries/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cc8f610b-d0c6-4c1a-b7db-7fe0b7435312",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"description gives authorization header is expected error\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.description).to.equal(\"Authorization header is expected\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/enquiries/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"enquiries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /enquiries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "152f2bad-b443-436f-b653-06d31482ab35",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"description gives authorization header is expected error\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.description).to.equal(\"Authorization header is expected\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"customer_id\": 1,\n\t\"pet_id\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/enquiries",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"enquiries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /customers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "12ed5c6d-ebe9-4b5e-8d45-5576325d6dc0",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"description gives authorization header is expected error\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.description).to.equal(\"Authorization header is expected\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/customers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /customers/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e77f40da-901f-4f90-acd0-83753786ff22",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"description gives authorization header is expected error\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.description).to.equal(\"Authorization header is expected\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/customers/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "33ed4b52-edab-4768-8ac0-40c2634e02c1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "9484ec84-efbe-435e-ab15-7fa291a7a7be",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "GET /pets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7a3f0cb7-22a3-48ae-b165-6a53183af026",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"json is an array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /pets-details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6cb6385a-7d03-49e1-9ada-4f107f8c2636",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets-details",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /pets/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5f3a7091-5797-4b53-9247-29343eab6526",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /pets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aa349402-dbdc-4e70-bd08-16b1933698bd",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Bobby\",\n\t\"breed\": \"husky\",\n\t\"description\": \"Bobby is 2 years old and a lovely dog.\",\n\t\"seeking_owner\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH /pets/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d0a26b04-6434-4fc4-be71-bc10f3cb2274",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"description\": \"Another description for Bobby\",\n\t\"seeking_owner\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pets/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /pets/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "88ab8d0e-fd22-4865-b843-f9617bbbbd59",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /enquiries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "55c76ace-c9e0-477b-bb53-dfc3072b4c74",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/enquiries",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"enquiries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /enquiries/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cc8f610b-d0c6-4c1a-b7db-7fe0b7435312",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/enquiries/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"enquiries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /enquiries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "152f2bad-b443-436f-b653-06d31482ab35",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"customer_id\": 3,\n\t\"pet_id\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/enquiries",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"enquiries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /customers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "12ed5c6d-ebe9-4b5e-8d45-5576325d6dc0",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/customers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /customers/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e77f40da-901f-4f90-acd0-83753786ff22",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/customers/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJqazVOVVpDTVVJNVJVWkNORFJETWpORlFURkRRa0UxUkRJNE1VVXpPRVV5TXpKRk1qSTNSZyJ9.eyJpc3MiOiJodHRwczovL2RybmlvMTMuZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlOWYwNDI2NjQ3YmViMGM3YmIxM2NmZiIsImF1ZCI6InBldHMiLCJpYXQiOjE1ODc5MTc5MzMsImV4cCI6MTU4ODAwNDMzMywiYXpwIjoiWUUyblNFWlJVMGd0SUFVMGJHODdOOHZxUkZ2MVU5czMiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpwZXRzIiwiZ2V0OnBldHMtZGV0YWlscyIsInBvc3Q6ZW5xdWlyaWVzIl19.FIgX1n700U9HentroG6pvAXTHLvl-FogagM2sUADMgoEnTWyQ9lbxG9PS5k45DoERmLpC9yybQxVsi4h-xbINKsYP6WEGEvtDlfD8PuupBt3XaTYzs6IJWlHZxRHSlP8IaFfqhz6MQ1Z4cRI7DYHgiNyt-ig31eEyuIypQtR0dGCIKNzupVtmUv3Ckd5-7H95B8K3lfTrODHbexsaBTTPuJxBTtjpcnZz8tESyVDeN1mTPOMMvoEZ5XyT6jqX7oGRuxY2QdG5hNgc4zv11GlVW9YWUl1L0pQinCINBFg_aVverb5NTE_4yCvjHa9G0fJukHFJa6qMI20ZMYLS7ddcw",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "33ed4b52-edab-4768-8ac0-40c2634e02c1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "9484ec84-efbe-435e-ab15-7fa291a7a7be",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Moderator",
+			"item": [
+				{
+					"name": "GET /pets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "26097d6c-2a1a-4e72-a04a-7e025982243e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value is an array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /pets-details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "adeec96e-6552-4d6e-8130-cccbfa5578b4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value is an array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('array')",
+									"});",
+									"",
+									"pm.test(\"pet has values\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0]['id']).to.be.an('number')",
+									"    pm.expect(jsonData[0]['description']).to.be.an('string')",
+									"    pm.expect(jsonData[0]['breed']).to.be.an('string')",
+									"    pm.expect(jsonData[0]['seeking_owner']).to.be.an('boolean')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets-details",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /pets/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4bf51623-739f-41af-a547-432cf630478b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value is an object\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('object')",
+									"});",
+									"",
+									"pm.test(\"pet object has values\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData['id']).to.be.an('number')",
+									"    pm.expect(jsonData['description']).to.be.an('string')",
+									"    pm.expect(jsonData['breed']).to.be.an('string')",
+									"    pm.expect(jsonData['seeking_owner']).to.be.an('boolean')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /pets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cec4fff3-6d6d-4102-b119-d2b40e83def5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value is an object\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('object')",
+									"});",
+									"",
+									"pm.test(\"new pet object has values\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData['id']).to.be.an('number')",
+									"    pm.expect(jsonData['description']).to.be.an('string')",
+									"    pm.expect(jsonData['breed']).to.be.an('string')",
+									"    pm.expect(jsonData['seeking_owner']).to.be.an('boolean')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"kiki\",\n\t\"breed\":\"puppy\",\n\t\"seeking_owner\": false,\n\t\"description\": \"kiki is a lovely puppy\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BAD POST /pets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1a26e892-a6a2-41b9-a363-098ede12eea1",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData['error']).to.equal(\"Bad request\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": null,\n\t\"description\": \"poppy is a lovely dog\",\n\t\"seeking_owner\": false,\n\t\"breed\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH /pets/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f8ed3951-2179-450c-b2e3-e84762b06c55",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value is an object\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('object')",
+									"});",
+									"",
+									"pm.test(\"edited pet object has correct values\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData['description']).to.equal('tessa is so lovely')",
+									"    pm.expect(jsonData['seeking_owner']).to.equal(false)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"description\": \"tessa is so lovely\",\n\t\"seeking_owner\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pets/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bad PATCH /pets/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "14b837f8-4cf4-4cb1-8ad7-06eb0cee24e4",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData['error']).to.equal(\"Missing required fields\")",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pets/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /pets/7",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7da3c18c-3563-4acb-9f1e-85d0d2cc81a5",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/pets/7",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BAD DELETE pets/8888888",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7923dabb-1392-46c4-8813-6976dfe3b709",
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets/8888888",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								"8888888"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /enquiries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "839b61fc-69eb-4b95-a617-1f9ca466268a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an(\"array\");",
+									"    pm.expect(jsonData[0]['customer_id']).to.be.an(\"number\");",
+									"    pm.expect(jsonData[0]['pet_id']).to.be.an(\"number\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/enquiries",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"enquiries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET enquiries/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c85afa4f-950d-46c0-becb-9398b9d8c682",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData['customer_id']).to.be.an(\"number\");",
+									"    pm.expect(jsonData['pet_id']).to.be.an(\"number\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/enquiries/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"enquiries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bad enquiries/88888888888888",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a4893f24-a40c-4825-bce6-68a4293d166a",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData['error']).to.be.equal(\"Enquiry #88888888888888 not found\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/enquiries/88888888888888",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"enquiries",
+								"88888888888888"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /enquiries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c183842b-6376-4910-9d5e-b21bb7a127bb",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"ghsss@gmail.com\",\n\t\"id\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/enquiries",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"enquiries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bad POST /enquiries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ed1852a5-07a6-4d17-99e6-78cfe6d04b5d",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[\"error\"]).to.equal(\"Bad request\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer_id\": 1,\n  \"pet_id\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/enquiries",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"enquiries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /customers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c37d6de5-5dfc-46f2-a8bc-7b0e65585b8d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an(\"array\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/customers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /customers/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a7950486-1120-49e1-963f-c869c77a8cad",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/customers/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "All accesses are granted to \"Manager\" role",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJqazVOVVpDTVVJNVJVWkNORFJETWpORlFURkRRa0UxUkRJNE1VVXpPRVV5TXpKRk1qSTNSZyJ9.eyJpc3MiOiJodHRwczovL2RybmlvMTMuZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlYTU0NDdlYTZkZjI2MGJmZGNlNmRlZSIsImF1ZCI6InBldHMiLCJpYXQiOjE1ODc5MTc0ODAsImV4cCI6MTU4ODAwMzg4MCwiYXpwIjoiWUUyblNFWlJVMGd0SUFVMGJHODdOOHZxUkZ2MVU5czMiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpjdXN0b21lcnMiLCJnZXQ6ZW5xdWlyaWVzIiwiZ2V0OmVucXVpcmllcy1kZXRhaWxzIiwiZ2V0OnBldHMiLCJnZXQ6cGV0cy1kZXRhaWxzIiwicGF0Y2g6ZW5xdWlyaWVzIiwicGF0Y2g6cGV0cyIsInBvc3Q6ZW5xdWlyaWVzIiwicG9zdDpwZXRzIl19.h3SEa_WJHinF9d0fLIpz0dN4Vf_-I9rthPOg_1IXTxtcO73PqZV8TXep-d1yqBHyrBYgtKS84BqEF8QyCzCfrUFNRCiwProO3F_1Z0mTIzAUs0tk4qUxgAoA_uZdOC5Lp8PtXDhFTDlZLlXQpI_PwraKoWIz_oqMMFcKP6FLjlftu3XbmPAiwooLghJuQQKX_yPQMDG_aDWuVwkpIzMosyc1QvE433ZEnMZzmDJ67K0ii3GHh5y_GURD8ltoMV6G0qDvvWXwNSkmj4CmlC4qSTAQ0XbxccdKzCW2WQtlUhFxcdoTYFnEh7dalAYPubXHkfprMValcpJdoAbq7c_tig",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f09e99fb-f136-4cdc-8db5-f083fca205ab",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "21946c80-6304-4462-a01a-dff1caf9e443",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Manager",
+			"item": [
+				{
+					"name": "GET /pets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "26097d6c-2a1a-4e72-a04a-7e025982243e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value is an array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /pets-details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "adeec96e-6552-4d6e-8130-cccbfa5578b4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value is an array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('array')",
+									"});",
+									"",
+									"pm.test(\"pet has values\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0]['id']).to.be.an('number')",
+									"    pm.expect(jsonData[0]['description']).to.be.an('string')",
+									"    pm.expect(jsonData[0]['breed']).to.be.an('string')",
+									"    pm.expect(jsonData[0]['seeking_owner']).to.be.an('boolean')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets-details",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /pets/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4bf51623-739f-41af-a547-432cf630478b",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value is an object\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('object')",
+									"});",
+									"",
+									"pm.test(\"pet object has values\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData['id']).to.be.an('number')",
+									"    pm.expect(jsonData['description']).to.be.an('string')",
+									"    pm.expect(jsonData['breed']).to.be.an('string')",
+									"    pm.expect(jsonData['seeking_owner']).to.be.an('boolean')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /pets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cec4fff3-6d6d-4102-b119-d2b40e83def5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value is an object\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('object')",
+									"});",
+									"",
+									"pm.test(\"new pet object has values\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData['id']).to.be.an('number')",
+									"    pm.expect(jsonData['description']).to.be.an('string')",
+									"    pm.expect(jsonData['breed']).to.be.an('string')",
+									"    pm.expect(jsonData['seeking_owner']).to.be.an('boolean')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"bobby\",\n\t\"breed\":\"huskky\",\n\t\"seeking_owner\": false,\n\t\"description\": \"bobby is a lovely puppy\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BAD POST /pets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1a26e892-a6a2-41b9-a363-098ede12eea1",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData['error']).to.equal(\"Bad request\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": null,\n\t\"description\": \"poppy is a lovely dog\",\n\t\"seeking_owner\": false,\n\t\"breed\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH /pets/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f8ed3951-2179-450c-b2e3-e84762b06c55",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value is an object\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an('object')",
+									"});",
+									"",
+									"pm.test(\"edited pet object has correct values\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData['description']).to.equal('tessa is so lovely')",
+									"    pm.expect(jsonData['seeking_owner']).to.equal(false)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"description\": \"tessa is so lovely\",\n\t\"seeking_owner\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pets/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bad PATCH /pets/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "14b837f8-4cf4-4cb1-8ad7-06eb0cee24e4",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData['error']).to.equal(\"Missing required fields\")",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/pets/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /pets/5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7da3c18c-3563-4acb-9f1e-85d0d2cc81a5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData['delete']).to.equal(5)",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets/5",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BAD DELETE pets/8888888",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7923dabb-1392-46c4-8813-6976dfe3b709",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData['error']).to.equal(\"Pet #88 not found to be deleted\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/pets/8888888",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"pets",
+								"8888888"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /enquiries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "839b61fc-69eb-4b95-a617-1f9ca466268a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an(\"array\");",
+									"    pm.expect(jsonData[0]['customer_id']).to.be.an(\"number\");",
+									"    pm.expect(jsonData[0]['pet_id']).to.be.an(\"number\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/enquiries",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"enquiries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET enquiries/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c85afa4f-950d-46c0-becb-9398b9d8c682",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData['customer_id']).to.be.an(\"number\");",
+									"    pm.expect(jsonData['pet_id']).to.be.an(\"number\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/enquiries/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"enquiries",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bad enquiries/88888888888888",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a4893f24-a40c-4825-bce6-68a4293d166a",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData['error']).to.be.equal(\"Enquiry #88888888888888 not found\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/enquiries/88888888888888",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"enquiries",
+								"88888888888888"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /enquiries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c183842b-6376-4910-9d5e-b21bb7a127bb",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[0][\"customer_id\"]).to.be.an(\"number\");",
+									"    pm.expect(jsonData[0][\"pet_id\"]).to.be.an(\"number\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"aaag@gmail.com\",\n\t\"id\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/enquiries",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"enquiries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bad POST /enquiries",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ed1852a5-07a6-4d17-99e6-78cfe6d04b5d",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData[\"error\"]).to.equal(\"Bad request\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer_id\": 1,\n  \"pet_id\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/enquiries",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"enquiries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /customers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c37d6de5-5dfc-46f2-a8bc-7b0e65585b8d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"error explanation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.be.an(\"array\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/customers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /customers/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d9c6c8bc-114a-421f-ad7e-d7deacdba495",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/customers/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"customers",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "All accesses are granted to \"Manager\" role",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlJqazVOVVpDTVVJNVJVWkNORFJETWpORlFURkRRa0UxUkRJNE1VVXpPRVV5TXpKRk1qSTNSZyJ9.eyJpc3MiOiJodHRwczovL2RybmlvMTMuZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVlOWYwM2NkNjQ3YmViMGM3YmIxM2M4MSIsImF1ZCI6InBldHMiLCJpYXQiOjE1ODc5MTMyMTgsImV4cCI6MTU4Nzk5OTYxOCwiYXpwIjoiWUUyblNFWlJVMGd0SUFVMGJHODdOOHZxUkZ2MVU5czMiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTplbnF1aXJpZXMiLCJkZWxldGU6cGV0cyIsImdldDpjdXN0b21lcnMiLCJnZXQ6ZW5xdWlyaWVzIiwiZ2V0OmVucXVpcmllcy1kZXRhaWxzIiwiZ2V0OnBldHMiLCJnZXQ6cGV0cy1kZXRhaWxzIiwicGF0Y2g6ZW5xdWlyaWVzIiwicGF0Y2g6cGV0cyIsInBvc3Q6ZW5xdWlyaWVzIiwicG9zdDpwZXRzIl19.hY3q1WySr3hObC-IrL9yopvj881QwEQGNT9t-qUSOcKAO4UHknTDzmmvzmOofzmr7UJssWU7rBjz3PYEZpO-Nqu12re6pv_y1ElmKR6s02_zIIu2NZ42nByaNpu7dJMlcF96CSHytHaExvYKqFImpGl8qBB8MjAzVR7igtVPfxom2mLjPGY6skMLenPhvTLBg1VZH4N40MxewFo4SeFblOiyd7MkyWviPa90pcZ8BNFfdNQZMuFOQ4etvxVPBfOzRwbF2MwtGW30mqDCZDE9co3ncAt3tENYziOFvEAQcfF_dAi8CCfxGTYgvTw6rXeLJMuAh9g98mHYTUJyg7Wppw",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f09e99fb-f136-4cdc-8db5-f083fca205ab",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "21946c80-6304-4462-a01a-dff1caf9e443",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
