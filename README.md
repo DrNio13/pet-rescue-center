@@ -76,5 +76,65 @@ Status  Code Description
 
 # API
 
+Title: `GET /pets`
+
+Description: Read all pets
+
+Success Response
+`200 OK`
+`[
+    {
+        "id": 4,
+        "name": "bobby",
+        "seeking_owner": false
+    },
+    {
+        "id": 3,
+        "name": "bobby",
+        "seeking_owner": true
+    }
+]`
+
+
+* All APIs above require Authentication and contain RBAC controls
+
+Error Response in case user is not authenticated
+
+`401 UNAUTHORIZED`
+`{
+    "code": "authorization_header_missing",
+    "description": "Authorization header is expected"
+}`
+
+Error Response in case user is not authorized to access the API
+
+`403 UNAUTHORIZED`
+`{
+    "code": "authorization_header_missing",
+    "description": "Authorization header is expected"
+}`
+
+
+Title: `GET /pets/{id}`
+
+Description: Read pet specific values based on `id` url parameter
+
+Success Response
+`200 OK`
+`[
+    {
+        "id": 4,
+        "name": "bobby",
+        "seeking_owner": false
+    },
+    {
+        "id": 3,
+        "name": "bobby",
+        "seeking_owner": true
+    }
+]`
+
+Requires authentication
+
 
 <!-- Documentation of API behavior and RBAC controls -->
