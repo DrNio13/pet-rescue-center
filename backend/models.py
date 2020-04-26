@@ -75,7 +75,6 @@ class Pet(db.Model):
             'breed': self.breed,
             'description': self.description,
             'seeking_owner': self.seeking_owner
-
         }
 
 

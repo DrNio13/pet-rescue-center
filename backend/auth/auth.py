@@ -8,7 +8,7 @@ from urllib.request import urlopen
 # TODO change this variables
 AUTH0_DOMAIN = 'drnio13.eu.auth0.com'
 ALGORITHMS = ['RS256']
-API_AUDIENCE = 'drink'
+API_AUDIENCE = 'pets'
 
 # AuthError Exception
 '''

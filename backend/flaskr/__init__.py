@@ -27,16 +27,15 @@ def get_pets():
         pets = Pet.query.all()
         pets_formatted = [pet.short_format() for pet in pets]
 
-        return jsonify(
-            pets_formatted
-        )
+        return jsonify(pets_formatted)
     except Exception as e:
         print(e)
         abort(500)
 
 
-@app.route("/pets-detail")
-def get_pets_detail():
+@app.route("/pets-details")
+@requires_auth('get:pets-details')
+def get_pets_detail(jwt):
     try:
         pets = Pet.query.all()
         pets_formatted = [pet.long_format() for pet in pets]
@@ -50,17 +49,24 @@ def get_pets_detail():
 @app.route("/pets", methods=["POST"])
 @requires_auth('post:pets')
 def create_pet(jwt):
-    body = request.get_json()
-    name = body.get("name")
-    breed = body.get("breed")
-    seeking_owner = body.get("seeking_owner")
-    description = body.get("description")
+    try:
+        body = request.get_json()
 
-    pet = Pet(name=name, breed=breed,
-              seeking_owner=seeking_owner, description=description)
-    pet.insert()
+        name = body.get("name", None)
+        breed = body.get("breed", None)
+        seeking_owner = body.get("seeking_owner", None)
+        description = body.get("description", None)
 
-    return jsonify(pet.long())
+        if (name is None or breed is None or seeking_owner is None or description is None):
+            abort(400)
+
+        pet = Pet(name=name, breed=breed,
+                  seeking_owner=seeking_owner, description=description)
+        pet.insert()
+
+        return jsonify(pet.long_format())
+    except:
+        abort(500)
 
 
 @app.route("/pets/<int:id>", methods=["PATCH"])
