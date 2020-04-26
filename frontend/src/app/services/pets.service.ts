@@ -37,7 +37,7 @@ export class PetsService {
       this.http.patch(this.url + '/pets/' + pet.id, pet, this.getHeaders())
         .subscribe((res: any) => {
           if (res.success) {
-            // this.petsToItems(res.pets);
+            console.log(res);
           }
         });
     } else { // insert
@@ -45,8 +45,8 @@ export class PetsService {
       this.http.post(this.url + '/pets', pet, this.getHeaders())
         .subscribe((res: any) => {
           if (res.success) {
-            // this.petsToItems(res.pets);
-            // TODO cleanup
+
+            console.log(res);
           }
         });
     }

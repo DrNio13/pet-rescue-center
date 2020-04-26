@@ -1,21 +1,25 @@
 # Pet Rescue Center Frontend
 
+Frontend build with Ionic
+
+# Dependencies
+
+Most important project dependencies are:
+
+Angular
+auth0/angular-jwt
+jwt-decode
+
+# Install Dependencies
+
 ```bash
 npm install
 ```
 
->_tip_: **npm i** is shorthand for **npm install**
+# Running Frontend
 
-## Required Tasks
-
-### Configure Enviornment Variables
-
-- Open `./src/environments/environments.ts` and ensure each variable reflects the system you stood up for the backend.
-
-## Running Your Frontend in Dev Mode
-
-Ionic ships with a useful development server which detects changes and transpiles as you work. The application is then accessible through the browser on a localhost port. To run the development server, cd into the `frontend` directory and run:
+Port :3000 is used
 
 ```bash
-ionic serve
+ng serve --open
 ```

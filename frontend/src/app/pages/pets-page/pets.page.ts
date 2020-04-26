@@ -27,7 +27,6 @@ export class PetsPage implements OnInit {
 
   async openForm(activePet: any = null) {
 
-    // TODO check permission
     if (!this.auth.can('get:pets-details')) {
       return;
     }
